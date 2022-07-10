@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>首頁</title>
+  </head>
+  <body>
+    <h1>密碼產生器</h1>
+    <form action="{% url 'password' %}" method="POST">
+      {% csrf_token %}
+      <label for="length">密碼長度</label>
+      <select name="length" id="length">
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8" selected>8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      <label for="input-length">自訂長度</label>
+      <input type="number" name="input-length" id="input-length" />
+      <br />
+      <input type="checkbox" name="uppercase" id="uppercase" />大寫
+      <input type="checkbox" name="numbers" id="numbers" />數字
+      <input type="checkbox" name="special" id="special" />特殊
+      <br />
+      <input type="submit" value="產生" />
+    </form>
+  </body>
+</html>
